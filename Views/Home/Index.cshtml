@@ -9,10 +9,17 @@
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+<body>
+    <div>
+        <table id="trs">
+        </table>
+    </div>
+</body>
 @section Scripts{
     <script>
         const btn = document.querySelector('#buttonClick');
         const myH = document.querySelector('.display-4');
+        const trf = document.querySelector('#trs');
         var emp = {
             "employees": [
                 { "name": "Tom", "workYears": 3, "salary": 35000 },
@@ -20,8 +27,16 @@
                 { "name": "Mary", "workYears": 7, "salary": 45000 }
             ]
         }
-        const { name, workYears, salary } = employee
+        /*const { name, workYears, salary } = employee*/
         btn.addEventListener('click', () => {
+            for (let i = 0, max = emp.employees.length; i < max; i++) {
+                console.log(emp.employees[i].name)
+                trf.innerHTML += "<tr>" +
+                    "<td>" + emp.employees[i].name + "<td/>" +
+                    "<td>" + emp.employees[i].workYears + "<td/>" +
+                    "<td>" + emp.employees[i].salary + "<td/>" +
+                    "<tr/>"
+            }
 
         })
     </script>
